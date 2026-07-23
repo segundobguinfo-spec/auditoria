@@ -1,0 +1,23 @@
+{
+  "name": "Auditoria y Optimizacion de Equipos - UEF Samborondon",
+  "short_name": "Auditoria UEF",
+  "description": "Proyecto de ciencias para diagnosticar y optimizar equipos informaticos del laboratorio escolar.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#071321",
+  "theme_color": "#071321",
+  "icons": [
+    {
+      "src": "assets/logo-samborondon.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo-samborondon.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoria y Optimizacion de Equipos | UEF Samborondon</title>
+  <meta name="description" content="Sistema web educativo para registrar, diagnosticar y optimizar equipos informaticos antiguos del laboratorio escolar.">
+  <meta name="theme-color" content="#071321">
+  <meta property="og:title" content="Auditoria y Optimizacion de Equipos | UEF Samborondon">
+  <meta property="og:description" content="Proyecto de ciencias para registrar, diagnosticar y optimizar equipos informaticos del laboratorio escolar.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/imagenes/hero-laboratorio-auditoria.png">
+  <link rel="icon" href="assets/logo-samborondon.jpeg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script async src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img src="assets/logo-samborondon.jpeg" alt="Logo Unidad Educativa Fiscal Samborondon">
+      <span>
+        <strong>UEF Samborondon</strong>
+        <small>Auditoria tecnica educativa</small>
+      </span>
+    </a>
+    <button class="nav-toggle icon-btn" type="button" aria-label="Abrir menu" data-action="toggle-nav"><i data-lucide="menu"></i></button>
+    <nav class="nav-links" id="mainNav" aria-label="Navegacion principal">
+      <a href="#registro">Registro</a>
+      <a href="#diagnostico">Diagnostico</a>
+      <a href="#optimizacion">Optimizacion</a>
+      <a href="#operacion">Operacion</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#inteligencia">IA academica</a>
+      <a href="#reportes">Reportes</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" type="button" title="Cambiar modo claro/oscuro" data-action="toggle-theme"><i data-lucide="moon"></i></button>
+      <button class="btn btn-compact btn-gold" type="button" data-scroll="#registro"><i data-lucide="play"></i> Iniciar</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/imagenes/hero-laboratorio-auditoria.png" alt="">
+        <div class="hero-shade"></div>
+      </div>
+      <div class="hero-content">
+        <div class="institution-chip">
+          <img src="assets/logo-samborondon.jpeg" alt="">
+          <span>Unidad Educativa Fiscal Samborondon</span>
+        </div>
+        <h1>Auditoria y Optimizacion de Rendimiento de Equipos</h1>
+        <p class="hero-copy">Proyecto educativo de diagnostico, mantenimiento y mejora de equipos informaticos del laboratorio escolar.</p>
+        <p class="institution-quote">"Luz y Ciencia al servicio de la innovacion educativa"</p>
+        <div class="hero-actions">
+          <button class="btn btn-gold" type="button" data-scroll="#registro"><i data-lucide="clipboard-check"></i> Iniciar auditoria</button>
+          <button class="btn btn-ghost" type="button" data-scroll="#tabla"><i data-lucide="monitor-check"></i> Ver equipos registrados</button>
+        </div>
+      </div>
+      <div class="hero-console" aria-label="Resumen operativo">
+        <div><span>Inventario</span><strong id="heroTotal">0</strong></div>
+        <div><span>Promedio final</span><strong id="heroFinal">0%</strong></div>
+        <div><span>Mejora general</span><strong id="heroImprove">0%</strong></div>
+        <div><span>Calidad de datos</span><strong id="heroQuality">0%</strong></div>
+      </div>
+    </section>
+
+    <section class="section intro" id="presentacion">
+      <div class="section-heading">
+        <span class="eyebrow">Sistema educativo de auditoria tecnica</span>
+        <h2>Registro, diagnostico, optimizacion y evidencia en un solo flujo</h2>
+        <p>Sistema web educativo para registrar, diagnosticar y optimizar equipos informaticos antiguos del laboratorio escolar, fortaleciendo las competencias tecnicas de los estudiantes.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><i data-lucide="search-check"></i><h3>Auditoria de equipos</h3><p>Inventario tecnico de CPU, RAM, disco, sistema operativo, estado fisico y rendimiento general.</p></article>
+        <article class="feature-card"><i data-lucide="gauge"></i><h3>Optimizacion realista</h3><p>Checklist educativo para limpieza, programas de inicio, discos, controladores, antivirus y mantenimiento preventivo.</p></article>
+        <article class="feature-card"><i data-lucide="bar-chart-3"></i><h3>Medicion visual</h3><p>Comparacion antes y despues con porcentajes, indicadores KPI, barras de progreso y graficos dinamicos.</p></article>
+        <article class="feature-card"><i data-lucide="file-badge"></i><h3>Reportes tecnicos</h3><p>Ficha institucional por equipo con logo, diagnostico, acciones, recomendaciones y exportacion en PDF.</p></article>
+      </div>
+    </section>
+
+    <section class="section operations-command" id="operacion">
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow">Centro operativo</span>
+          <h2>Estado 100% funcional de la aplicacion</h2>
+        </div>
+        <button class="btn btn-gold" type="button" data-action="run-health-check"><i data-lucide="shield-check"></i> Verificar sistema</button>
+      </div>
+      <div class="operations-grid">
+        <article class="panel operation-card">
+          <span>Estado de ejecucion</span>
+          <div class="status-pill" id="runtimeStatus">Comprobando...</div>
+          <p id="runtimeSummary">Revisando almacenamiento, modo de apertura, PWA y librerias externas.</p>
+        </article>
+        <article class="panel operation-card">
+          <span>Respaldo de datos</span>
+          <strong id="backupStatus">Sin respaldo manual</strong>
+          <p id="backupSummary">Crea una copia antes de importar, limpiar o exponer el proyecto.</p>
+          <div class="mini-actions">
+            <button class="btn btn-soft" type="button" data-action="export-backup"><i data-lucide="archive"></i> Copia de seguridad</button>
+            <button class="btn btn-soft" type="button" data-action="restore-backup"><i data-lucide="rotate-ccw"></i> Restaurar</button>
+          </div>
+        </article>
+        <article class="panel operation-card">
+          <span>Dependencias y PWA</span>
+          <ul class="dependency-list" id="dependencyList"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section science-command" id="inteligencia">
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow">Modulo D</span>
+          <h2>Centro inteligente para feria de ciencias</h2>
+        </div>
+        <button class="btn btn-gold" type="button" data-action="generate-notes"><i data-lucide="sparkles"></i> Generar conclusiones</button>
+      </div>
+      <div class="command-grid">
+        <article class="panel command-card">
+          <span>Calidad metodologica</span>
+          <div class="quality-meter" style="--quality: 0" id="qualityMeter"><strong id="qualityText">0%</strong></div>
+          <p id="qualitySummary">Registra equipos, diagnosticos, optimizaciones y evidencias para fortalecer el proyecto.</p>
+        </article>
+        <article class="panel command-card">
+          <span>Cola de prioridad tecnica</span>
+          <div class="priority-list" id="priorityList"></div>
+        </article>
+        <article class="panel command-card">
+          <span>Hipotesis y resultado</span>
+          <div class="hypothesis-box" id="hypothesisBox"></div>
+        </article>
+        <article class="panel command-card wide-command">
+          <span>Asistente tecnico de optimizacion</span>
+          <div class="assistant-box" id="technicalAssistant"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section workspace" id="registro">
+      <div class="section-heading compact">
+        <span class="eyebrow">Modulo A</span>
+        <h2>Registro de equipos del laboratorio</h2>
+      </div>
+      <form class="panel form-grid" id="equipmentForm" autocomplete="off">
+        <input type="hidden" id="editingId">
+        <label>Codigo del equipo *<input id="code" required placeholder="EQ-001"></label>
+        <label>Nombre o numero *<input id="name" required placeholder="Equipo 001"></label>
+        <label>Ubicacion *<input id="location" required placeholder="Laboratorio 1"></label>
+        <label>Marca<input id="brand" placeholder="HP, Dell, Lenovo"></label>
+        <label>Modelo<input id="model" placeholder="OptiPlex 3020"></label>
+        <label>Procesador / CPU *<input id="cpu" required placeholder="Intel Core i3"></label>
+        <label>Memoria RAM (GB) *<input id="ram" required type="number" min="1" step="1" placeholder="4"></label>
+        <label>Tipo de disco *<select id="diskType" required><option>HDD</option><option>SSD</option><option>NVMe</option></select></label>
+        <label>Capacidad del disco (GB) *<input id="diskCapacity" required type="number" min="1" step="1" placeholder="500"></label>
+        <label>Sistema operativo *<input id="os" required placeholder="Windows 10"></label>
+        <label>Estado fisico *<select id="physicalState" required><option>Bueno</option><option>Regular</option><option>Malo</option></select></label>
+        <label>Estado de encendido *<select id="powerState" required><option>Enciende</option><option>No enciende</option><option>Intermitente</option></select></label>
+        <label>Responsable *<input id="owner" required placeholder="Nombre del estudiante"></label>
+        <label>Fecha de revision *<input id="reviewDate" required type="date"></label>
+        <label class="wide">Observaciones iniciales<textarea id="initialNotes" rows="3" placeholder="Descripcion breve del estado inicial"></textarea></label>
+        <div class="form-actions wide">
+          <button class="btn btn-gold" type="submit"><i data-lucide="save"></i> Guardar equipo</button>
+          <button class="btn btn-soft" type="button" data-action="clear-form"><i data-lucide="eraser"></i> Limpiar formulario</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section split" id="diagnostico">
+      <div>
+        <div class="section-heading compact">
+          <span class="eyebrow">Modulo B</span>
+          <h2>Diagnostico tecnico inicial</h2>
+        </div>
+        <form class="panel form-grid" id="diagnosisForm">
+          <label class="wide">Equipo seleccionado *<select id="diagnosisEquipment" required></select></label>
+          <label>Tiempo de encendido (seg) *<input id="bootTime" type="number" min="1" step="1" required></label>
+          <label>Lentitud del sistema<select id="slowness"><option>Baja</option><option>Media</option><option>Alta</option></select></label>
+          <label>Uso de CPU (%)<input id="cpuUsage" type="number" min="0" max="100"></label>
+          <label>Uso de RAM (%)<input id="ramUsage" type="number" min="0" max="100"></label>
+          <label>Espacio libre en disco (%) *<input id="freeSpace" type="number" min="0" max="100" required></label>
+          <label>Programas innecesarios<input id="unneededPrograms" type="number" min="0" step="1"></label>
+          <label>Controladores desactualizados<select id="driversOutdated"><option>No</option><option>Si</option></select></label>
+          <label>Archivos temporales<select id="tempFiles"><option>Bajo</option><option>Medio</option><option>Alto</option></select></label>
+          <label>Estado del disco<select id="diskHealth"><option>Bueno</option><option>Regular</option><option>Critico</option></select></label>
+          <label>Antivirus<select id="antivirus"><option>Activo</option><option>Desactualizado</option><option>No instalado</option></select></label>
+          <label>Actualizaciones<select id="updates"><option>Al dia</option><option>Pendientes</option><option>Sin soporte</option></select></label>
+          <label>Nivel antes<select id="initialLevel"><option>Bajo</option><option>Medio</option><option>Alto</option></select></label>
+          <label class="wide">Programas detectados<textarea id="programsDetected" rows="3"></textarea></label>
+          <div class="form-actions wide">
+            <button class="btn btn-gold" type="submit"><i data-lucide="activity"></i> Guardar diagnostico</button>
+          </div>
+        </form>
+      </div>
+      <aside class="score-panel">
+        <span>Rendimiento inicial estimado</span>
+        <div class="score-ring" style="--score: 0" id="initialScoreRing"><strong id="initialScoreText">0%</strong></div>
+        <p>El calculo considera RAM, disco, espacio libre, tiempo de encendido, controladores, estado fisico y carga del sistema.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="optimizacion">
+      <div class="section-heading compact">
+        <span class="eyebrow">Modulo C</span>
+        <h2>Optimizacion aplicada y comparacion</h2>
+      </div>
+      <form class="panel" id="optimizationForm">
+        <div class="form-grid">
+          <label class="wide">Equipo seleccionado *<select id="optimizationEquipment" required></select></label>
+        </div>
+        <div class="actions-grid" id="optimizationActions"></div>
+        <div class="compare-grid">
+          <label>Tiempo de encendido despues (seg)<input id="bootAfter" type="number" min="1"></label>
+          <label>Espacio libre despues (%)<input id="freeAfter" type="number" min="0" max="100"></label>
+          <label>Estado final<select id="finalStateManual"><option>Automatico</option><option>Optimo</option><option>Aceptable</option><option>Requiere mantenimiento</option><option>Requiere reemplazo</option></select></label>
+          <label>Recomendacion tecnica final<textarea id="technicalRecommendation" rows="3"></textarea></label>
+        </div>
+        <div class="comparison-board">
+          <div><span>Antes</span><strong id="beforeScore">0%</strong><meter id="beforeMeter" min="0" max="100" value="0"></meter></div>
+          <div><span>Despues</span><strong id="afterScore">0%</strong><meter id="afterMeter" min="0" max="100" value="0"></meter></div>
+          <div><span>Mejora</span><strong id="improvementScore">0%</strong><meter id="improvementMeter" min="0" max="100" value="0"></meter></div>
+          <div><span>Nivel final</span><strong id="finalLevelLabel">Sin datos</strong><small id="finalStatusLabel">Pendiente</small></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-gold" type="submit"><i data-lucide="wrench"></i> Guardar optimizacion</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section dashboard" id="dashboard">
+      <div class="section-heading compact">
+        <span class="eyebrow">Panel general</span>
+        <h2>Dashboard estadistico</h2>
+      </div>
+      <div class="kpi-grid" id="kpiGrid"></div>
+      <div class="chart-layout">
+        <div class="panel chart-card"><h3>Rendimiento por equipo</h3><canvas id="performanceChart"></canvas></div>
+        <div class="panel chart-card"><h3>Distribucion de discos</h3><canvas id="diskChart"></canvas></div>
+        <div class="panel chart-card"><h3>Estados finales</h3><canvas id="statusChart"></canvas></div>
+      </div>
+    </section>
+
+    <section class="section" id="tabla">
+      <div class="section-heading compact">
+        <span class="eyebrow">Inventario activo</span>
+        <h2>Tabla general de equipos</h2>
+      </div>
+      <div class="panel table-toolbar">
+        <label>Buscar equipo<input id="searchInput" placeholder="Codigo, CPU, responsable..."></label>
+        <label>Filtrar por estado<select id="stateFilter"><option value="Todos">Todos</option><option>Bueno</option><option>Regular</option><option>Malo</option></select></label>
+        <div class="toolbar-actions">
+          <button class="btn btn-soft" type="button" data-action="export-json"><i data-lucide="download"></i> JSON</button>
+          <button class="btn btn-soft" type="button" data-action="export-csv"><i data-lucide="table"></i> CSV</button>
+          <button class="btn btn-soft" type="button" data-action="export-project"><i data-lucide="package-check"></i> Paquete</button>
+          <label class="btn btn-soft file-btn"><i data-lucide="upload"></i> Importar<input id="importJson" type="file" accept="application/json"></label>
+          <button class="btn btn-soft" type="button" data-action="seed-demo"><i data-lucide="database-backup"></i> Datos demo</button>
+          <button class="btn btn-danger" type="button" data-action="clear-all"><i data-lucide="trash-2"></i> Limpiar todo</button>
+        </div>
+      </div>
+      <div class="panel table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th>Codigo</th><th>Equipo</th><th>CPU</th><th>RAM</th><th>Disco</th><th>Sistema</th><th>Estado inicial</th><th>Estado final</th><th>Antes</th><th>Despues</th><th>Responsable</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="equipmentTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section split" id="reportes">
+      <div>
+        <div class="section-heading compact">
+          <span class="eyebrow">Reporte tecnico individual</span>
+          <h2>Ficha institucional por equipo</h2>
+        </div>
+        <div class="panel report-controls">
+          <label>Equipo para reporte<select id="reportEquipment"></select></label>
+          <button class="btn btn-gold" type="button" data-action="download-pdf"><i data-lucide="file-down"></i> Exportar reporte en PDF</button>
+          <button class="btn btn-soft" type="button" data-action="download-project-pdf"><i data-lucide="presentation"></i> Informe general</button>
+        </div>
+      </div>
+      <article class="report-card" id="reportCard"></article>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="section-heading compact">
+        <span class="eyebrow">Evidencias</span>
+        <h2>Galeria visual del proyecto</h2>
+      </div>
+      <div class="panel gallery-uploader">
+        <label class="file-zone"><i data-lucide="image-plus"></i><span>Cargar fotos de antes, durante o despues</span><input id="galleryInput" type="file" accept="image/*" multiple></label>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="section methodology" id="metodologia">
+      <div class="section-heading compact">
+        <span class="eyebrow">Metodologia</span>
+        <h2>Fases del proyecto</h2>
+      </div>
+      <div class="timeline">
+        <div><strong>1</strong><span>Identificacion de equipos antiguos</span></div>
+        <div><strong>2</strong><span>Inventario tecnico de hardware</span></div>
+        <div><strong>3</strong><span>Diagnostico inicial del rendimiento</span></div>
+        <div><strong>4</strong><span>Aplicacion de tecnicas de optimizacion</span></div>
+        <div><strong>5</strong><span>Comparacion antes y despues</span></div>
+        <div><strong>6</strong><span>Registro de resultados</span></div>
+        <div><strong>7</strong><span>Elaboracion del informe final</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="conclusiones">
+      <div class="section-heading compact">
+        <span class="eyebrow">Cierre academico</span>
+        <h2>Conclusiones y recomendaciones</h2>
+      </div>
+      <div class="panel form-grid">
+        <div class="wide conclusion-tools">
+          <button class="btn btn-gold" type="button" data-action="generate-notes"><i data-lucide="sparkles"></i> Autogenerar desde resultados</button>
+          <button class="btn btn-soft" type="button" data-action="copy-summary"><i data-lucide="copy"></i> Copiar resumen ejecutivo</button>
+        </div>
+        <label class="wide">Conclusiones<textarea class="autosave-note" data-key="conclusions" rows="4"></textarea></label>
+        <label class="wide">Recomendaciones tecnicas<textarea class="autosave-note" data-key="recommendations" rows="4"></textarea></label>
+        <label class="wide">Propuestas de mejora para el laboratorio<textarea class="autosave-note" data-key="proposals" rows="4"></textarea></label>
+        <label class="wide">Reflexion del aprendizaje obtenido<textarea class="autosave-note" data-key="reflection" rows="4"></textarea></label>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/logo-samborondon.jpeg" alt="">
+    <span>Unidad Educativa Fiscal Samborondon - Proyecto educativo de diagnostico, mantenimiento e innovacion tecnologica.</span>
+  </footer>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <div class="modal" id="detailModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="icon-btn modal-close" type="button" data-action="close-modal" aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+</body>
+</html>
